@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="gpmnonu" name="modelos.Etapas" optimistic-lock="version" table="etapas">
+    <id name="idEtapa" type="int">
+      <column name="ID_ETAPA"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelos.Proyecto" fetch="select" name="proyecto">
+      <column name="ID_PROYECTO"/>
+    </many-to-one>
+    <property name="nombreEtap" type="string">
+      <column length="50" name="NOMBRE_ETAP"/>
+    </property>
+    <property name="descripcionEtap" type="string">
+      <column length="400" name="DESCRIPCION_ETAP"/>
+    </property>
+    <property name="presupuesto" type="java.lang.Long">
+      <column name="PRESUPUESTO" precision="10" scale="0"/>
+    </property>
+    <property name="fechaInicioEt" type="date">
+      <column length="10" name="FECHA_INICIO_ET"/>
+    </property>
+    <property name="fechaFinEt" type="date">
+      <column length="10" name="FECHA_FIN_ET"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="actividadeses" table="actividades">
+      <key>
+        <column name="ID_ETAPA"/>
+      </key>
+      <one-to-many class="modelos.Actividades"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="gpmnonu" name="modelos.Proyecto" optimistic-lock="version" table="proyecto">
+    <id name="idProyecto" type="int">
+      <column name="ID_PROYECTO"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelos.Encargado" fetch="select" name="encargado">
+      <column name="ID_ENCARGADO"/>
+    </many-to-one>
+    <property name="nombrePry" type="string">
+      <column length="50" name="NOMBRE_PRY"/>
+    </property>
+    <property name="descripPry" type="string">
+      <column length="500" name="DESCRIP_PRY"/>
+    </property>
+    <property name="inversion" type="java.lang.Long">
+      <column name="INVERSION" precision="10" scale="0"/>
+    </property>
+    <property name="duracion" type="java.lang.Integer">
+      <column name="DURACION"/>
+    </property>
+    <property name="fechaInicioPry" type="date">
+      <column length="10" name="FECHA_INICIO_PRY"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="15" name="ESTADO"/>
+    </property>
+    <property name="activo" type="java.lang.Boolean">
+      <column name="ACTIVO"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="etapases" table="etapas">
+      <key>
+        <column name="ID_PROYECTO"/>
+      </key>
+      <one-to-many class="modelos.Etapas"/>
+    </set>
+  </class>
+</hibernate-mapping>
