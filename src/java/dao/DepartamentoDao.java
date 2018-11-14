@@ -14,8 +14,13 @@ import modelos.Departamento;
  */
 public interface DepartamentoDao {
     //Operaciones del CRUD
+    
     //CONSULTAR
     public List<Departamento> mostrarDepartamentos();
     //CREAR
     public void nuevoDepartamento (Departamento departamento);
+    //ACTUALIZAR
+    public void modificarDepartamento (Departamento departamento);
+    //ELIMINAR
+    public void eliminarDepartamento (Departamento departamento);
 }

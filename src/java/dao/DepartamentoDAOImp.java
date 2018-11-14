@@ -55,5 +55,44 @@ public class DepartamentoDAOImp implements DepartamentoDao {
             }
         }
     }
+    
+    //ACTUALIZAR
+    @Override
+    public void modificarDepartamento(Departamento departamento) {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.update(departamento);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            session.getTransaction().rollback();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    //ELIMINAR
+    @Override
+    public void eliminarDepartamento(Departamento departamento) {
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(departamento);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            session.getTransaction().rollback();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+    
 
 }

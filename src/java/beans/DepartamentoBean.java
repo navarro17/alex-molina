@@ -52,6 +52,18 @@ public class DepartamentoBean {
         departamento = new Departamento();
     }
 
+    public void modificarDepartamento() {
+        DepartamentoDao dep = new DepartamentoDAOImp();
+        dep.modificarDepartamento(departamento);
+        departamento = new Departamento();
+    }
+    
+    public void eliminarDepartamento() {
+        DepartamentoDao dep = new DepartamentoDAOImp();
+        dep.eliminarDepartamento(departamento);
+        departamento = new Departamento();
+    }
+    
     //Botón Cancelar
     public void cancelar() {
         departamento = new Departamento();
