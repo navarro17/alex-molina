@@ -5,7 +5,7 @@
   <class catalog="gpmnonu" name="modelos.Departamento" optimistic-lock="version" table="departamento">
     <id name="idDepartamento" type="int">
       <column name="ID_DEPARTAMENTO"/>
-      <generator class="assigned"/>
+      <generator class="increment"/>
     </id>
     <property name="nombreDept" type="string">
       <column length="50" name="NOMBRE_DEPT"/>
