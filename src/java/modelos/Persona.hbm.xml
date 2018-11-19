@@ -1,35 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2018 21:13:37 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="gpmnonu" name="modelos.Persona" optimistic-lock="version" table="persona">
-    <id name="idPersona" type="int">
-      <column name="ID_PERSONA"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="modelos.Genero" fetch="select" name="genero">
-      <column name="ID_GENERO"/>
-    </many-to-one>
-    <property name="nombres" type="string">
-      <column length="50" name="NOMBRES"/>
-    </property>
-    <property name="apellidos" type="string">
-      <column length="50" name="APELLIDOS"/>
-    </property>
-    <property name="edad" type="java.lang.Integer">
-      <column name="EDAD"/>
-    </property>
-    <property name="direccion" type="string">
-      <column length="300" name="DIRECCION"/>
-    </property>
-    <property name="fechaNacimiento" type="date">
-      <column length="10" name="FECHA_NACIMIENTO"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="encargados" table="encargado">
-      <key>
-        <column name="ID_PERSONA"/>
-      </key>
-      <one-to-many class="modelos.Encargado"/>
-    </set>
-  </class>
+    <class name="modelos.Persona" table="persona" catalog="gpmnonu" optimistic-lock="version">
+        <id name="idPersona" type="int">
+            <column name="ID_PERSONA" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="genero" class="modelos.Genero" fetch="select">
+            <column name="ID_GENERO" />
+        </many-to-one>
+        <property name="nombres" type="string">
+            <column name="NOMBRES" length="50" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="APELLIDOS" length="50" />
+        </property>
+        <property name="edad" type="java.lang.Integer">
+            <column name="EDAD" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="300" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FECHA_NACIMIENTO" length="10" />
+        </property>
+        <set name="encargados" table="encargado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PERSONA" />
+            </key>
+            <one-to-many class="modelos.Encargado" />
+        </set>
+    </class>
 </hibernate-mapping>

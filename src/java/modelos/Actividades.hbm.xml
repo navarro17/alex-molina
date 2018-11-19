@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2018 21:13:37 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="gpmnonu" name="modelos.Actividades" optimistic-lock="version" table="actividades">
-    <id name="idActividad" type="int">
-      <column name="ID_ACTIVIDAD"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="modelos.Etapas" fetch="select" name="etapas">
-      <column name="ID_ETAPA"/>
-    </many-to-one>
-    <property name="nombreActi" type="string">
-      <column length="100" name="NOMBRE_ACTI"/>
-    </property>
-    <property name="descripcionActi" type="string">
-      <column length="300" name="DESCRIPCION_ACTI"/>
-    </property>
-    <property name="estadoActi" type="string">
-      <column length="20" name="ESTADO_ACTI"/>
-    </property>
-  </class>
+    <class name="modelos.Actividades" table="actividades" catalog="gpmnonu" optimistic-lock="version">
+        <id name="idActividad" type="int">
+            <column name="ID_ACTIVIDAD" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="etapas" class="modelos.Etapas" fetch="select">
+            <column name="ID_ETAPA" />
+        </many-to-one>
+        <property name="nombreActi" type="string">
+            <column name="NOMBRE_ACTI" length="100" />
+        </property>
+        <property name="descripcionActi" type="string">
+            <column name="DESCRIPCION_ACTI" length="300" />
+        </property>
+        <property name="estadoActi" type="string">
+            <column name="ESTADO_ACTI" length="20" />
+        </property>
+    </class>
 </hibernate-mapping>

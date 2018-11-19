@@ -10,6 +10,7 @@ import dao.DepartamentoDAOImp;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 import javax.faces.bean.ViewScoped;
 import modelos.Departamento;
@@ -20,7 +21,7 @@ import modelos.Departamento;
  */
 @Named(value = "departamentoBean")
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class DepartamentoBean {
 
     /**

@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2018 21:13:37 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="gpmnonu" name="modelos.Genero" optimistic-lock="version" table="genero">
-    <id name="idGenero" type="int">
-      <column name="ID_GENERO"/>
-      <generator class="assigned"/>
-    </id>
-    <property name="sexo" type="string">
-      <column length="2" name="SEXO"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="personas" table="persona">
-      <key>
-        <column name="ID_GENERO"/>
-      </key>
-      <one-to-many class="modelos.Persona"/>
-    </set>
-  </class>
+    <class name="modelos.Genero" table="genero" catalog="gpmnonu" optimistic-lock="version">
+        <id name="idGenero" type="int">
+            <column name="ID_GENERO" />
+            <generator class="assigned" />
+        </id>
+        <property name="sexo" type="string">
+            <column name="SEXO" length="2" />
+        </property>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_GENERO" />
+            </key>
+            <one-to-many class="modelos.Persona" />
+        </set>
+    </class>
 </hibernate-mapping>

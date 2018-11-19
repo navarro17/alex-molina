@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2018 21:13:37 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="gpmnonu" name="modelos.Asociacion" optimistic-lock="version" table="asociacion">
-    <id name="idAsosiacion" type="int">
-      <column name="ID_ASOSIACION"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="modelos.Municipio" fetch="select" name="municipio">
-      <column name="ID_MUNICIPIO"/>
-    </many-to-one>
-    <property name="nombreAso" type="string">
-      <column length="50" name="NOMBRE_ASO"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="encargados" table="encargado">
-      <key>
-        <column name="ID_ASOSIACION"/>
-      </key>
-      <one-to-many class="modelos.Encargado"/>
-    </set>
-  </class>
+    <class name="modelos.Asociacion" table="asociacion" catalog="gpmnonu" optimistic-lock="version">
+        <id name="idAsosiacion" type="int">
+            <column name="ID_ASOSIACION" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="municipio" class="modelos.Municipio" fetch="select">
+            <column name="ID_MUNICIPIO" />
+        </many-to-one>
+        <property name="nombreAso" type="string">
+            <column name="NOMBRE_ASO" length="50" />
+        </property>
+        <set name="encargados" table="encargado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ASOSIACION" />
+            </key>
+            <one-to-many class="modelos.Encargado" />
+        </set>
+    </class>
 </hibernate-mapping>

@@ -1,5 +1,5 @@
 package modelos;
-// Generated 11-nov-2018 17:52:52 by Hibernate Tools 4.3.1
+// Generated 18-nov-2018 21:13:35 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,12 +12,12 @@ import java.util.Set;
 public class Proyecto  implements java.io.Serializable {
 
 
-     private int idProyecto;
+     private Integer idProyecto;
      private Encargado encargado;
      private String nombrePry;
      private String descripPry;
-     private Long inversion;
-     private Integer duracion;
+     private long inversion;
+     private int duracion;
      private Date fechaInicioPry;
      private String estado;
      private Boolean activo;
@@ -27,11 +27,13 @@ public class Proyecto  implements java.io.Serializable {
     }
 
 	
-    public Proyecto(int idProyecto) {
-        this.idProyecto = idProyecto;
+    public Proyecto(String nombrePry, String descripPry, long inversion, int duracion) {
+        this.nombrePry = nombrePry;
+        this.descripPry = descripPry;
+        this.inversion = inversion;
+        this.duracion = duracion;
     }
-    public Proyecto(int idProyecto, Encargado encargado, String nombrePry, String descripPry, Long inversion, Integer duracion, Date fechaInicioPry, String estado, Boolean activo, Set<Etapas> etapases) {
-       this.idProyecto = idProyecto;
+    public Proyecto(Encargado encargado, String nombrePry, String descripPry, long inversion, int duracion, Date fechaInicioPry, String estado, Boolean activo, Set<Etapas> etapases) {
        this.encargado = encargado;
        this.nombrePry = nombrePry;
        this.descripPry = descripPry;
@@ -43,11 +45,11 @@ public class Proyecto  implements java.io.Serializable {
        this.etapases = etapases;
     }
    
-    public int getIdProyecto() {
+    public Integer getIdProyecto() {
         return this.idProyecto;
     }
     
-    public void setIdProyecto(int idProyecto) {
+    public void setIdProyecto(Integer idProyecto) {
         this.idProyecto = idProyecto;
     }
     public Encargado getEncargado() {
@@ -71,18 +73,18 @@ public class Proyecto  implements java.io.Serializable {
     public void setDescripPry(String descripPry) {
         this.descripPry = descripPry;
     }
-    public Long getInversion() {
+    public long getInversion() {
         return this.inversion;
     }
     
-    public void setInversion(Long inversion) {
+    public void setInversion(long inversion) {
         this.inversion = inversion;
     }
-    public Integer getDuracion() {
+    public int getDuracion() {
         return this.duracion;
     }
     
-    public void setDuracion(Integer duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
     public Date getFechaInicioPry() {

@@ -1,32 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2018 21:13:37 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="gpmnonu" name="modelos.Encargado" optimistic-lock="version" table="encargado">
-    <id name="idEncargado" type="int">
-      <column name="ID_ENCARGADO"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="modelos.Asociacion" fetch="select" name="asociacion">
-      <column name="ID_ASOSIACION"/>
-    </many-to-one>
-    <many-to-one class="modelos.Municipio" fetch="select" name="municipio">
-      <column name="ID_MUNICIPIO"/>
-    </many-to-one>
-    <many-to-one class="modelos.Persona" fetch="select" name="persona">
-      <column name="ID_PERSONA"/>
-    </many-to-one>
-    <property name="puesto" type="string">
-      <column length="20" name="PUESTO"/>
-    </property>
-    <property name="telefono" type="string">
-      <column length="9" name="TELEFONO"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="proyectos" table="proyecto">
-      <key>
-        <column name="ID_ENCARGADO"/>
-      </key>
-      <one-to-many class="modelos.Proyecto"/>
-    </set>
-  </class>
+    <class name="modelos.Encargado" table="encargado" catalog="gpmnonu" optimistic-lock="version">
+        <id name="idEncargado" type="int">
+            <column name="ID_ENCARGADO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="asociacion" class="modelos.Asociacion" fetch="select">
+            <column name="ID_ASOSIACION" />
+        </many-to-one>
+        <many-to-one name="municipio" class="modelos.Municipio" fetch="select">
+            <column name="ID_MUNICIPIO" />
+        </many-to-one>
+        <many-to-one name="persona" class="modelos.Persona" fetch="select">
+            <column name="ID_PERSONA" />
+        </many-to-one>
+        <property name="puesto" type="string">
+            <column name="PUESTO" length="20" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="9" />
+        </property>
+        <set name="proyectos" table="proyecto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ENCARGADO" />
+            </key>
+            <one-to-many class="modelos.Proyecto" />
+        </set>
+    </class>
 </hibernate-mapping>

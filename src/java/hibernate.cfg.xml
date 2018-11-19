@@ -43,19 +43,18 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/gpmnonu?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/gpmnonu?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="modelos/Actividades.hbm.xml"/>
-    <mapping resource="modelos/Persona.hbm.xml"/>
+    <mapping resource="modelos/Departamento.hbm.xml"/>
+    <mapping resource="modelos/Proyecto.hbm.xml"/>
     <mapping resource="modelos/Municipio.hbm.xml"/>
+    <mapping resource="modelos/Encargado.hbm.xml"/>
     <mapping resource="modelos/Etapas.hbm.xml"/>
     <mapping resource="modelos/Asociacion.hbm.xml"/>
-    <mapping resource="modelos/Proyecto.hbm.xml"/>
+    <mapping resource="modelos/Actividades.hbm.xml"/>
+    <mapping resource="modelos/Persona.hbm.xml"/>
     <mapping resource="modelos/Genero.hbm.xml"/>
-    <mapping resource="modelos/Departamento.hbm.xml"/>
-    <mapping resource="modelos/Encargado.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

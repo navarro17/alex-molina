@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-nov-2018 17:52:53 by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-nov-2018 21:13:37 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="gpmnonu" name="modelos.Departamento" optimistic-lock="version" table="departamento">
-    <id name="idDepartamento" type="int">
-      <column name="ID_DEPARTAMENTO"/>
-      <generator class="increment"/>
-    </id>
-    <property name="nombreDept" type="string">
-      <column length="50" name="NOMBRE_DEPT"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="municipios" table="municipio">
-      <key>
-        <column name="ID_DEPARTAMENTO"/>
-      </key>
-      <one-to-many class="modelos.Municipio"/>
-    </set>
-  </class>
+    <class name="modelos.Departamento" table="departamento" catalog="gpmnonu" optimistic-lock="version">
+        <id name="idDepartamento" type="int">
+            <column name="ID_DEPARTAMENTO" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreDept" type="string">
+            <column name="NOMBRE_DEPT" length="50" />
+        </property>
+        <set name="municipios" table="municipio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_DEPARTAMENTO" />
+            </key>
+            <one-to-many class="modelos.Municipio" />
+        </set>
+    </class>
 </hibernate-mapping>
