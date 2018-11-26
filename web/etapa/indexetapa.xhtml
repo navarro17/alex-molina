@@ -30,7 +30,7 @@ and open the template in the editor.
             </div>
         </nav>
         <div class="container">
-        <center><h4>Nuevo Proyecto</h4></center>
+        <center><h4>Nueva Etapa</h4></center>
         <br />
         <h:form id="formAgregar">          
             <div class="row">
@@ -39,7 +39,7 @@ and open the template in the editor.
                         Nombre de la etapa:
                     </div>
                     <div class="input-field col s12 m7">                   
-                        <p:inputText value="#{EtapasBeaan.etapa.nombreEtap}" />
+                        <p:inputText value="#{etapasBean.etapa.nombreEtap}" />
                     </div>
                     <div class="col s12 m2"></div>
 
@@ -48,7 +48,7 @@ and open the template in the editor.
                         Descripcion de la etapa:
                     </div>
                     <div class="input-field col s12 m7">
-                        <p:inputTextarea value="#{EtapasBean.etapa.descripcionEtap}"></p:inputTextarea>
+                        <p:inputTextarea value="#{etapasBean.etapa.descripcionEtap}"></p:inputTextarea>
                     </div>
                     <div class="col s12 m2"></div>
 
@@ -57,7 +57,7 @@ and open the template in the editor.
                         presupuesto:
                     </div>
                     <div class="input-field col s12 m3">
-                        <p:inputText value="#{EtapasBean.etapa.presupuesto}" />
+                        <p:inputText value="#{etapasBean.etapa.presupuesto}" />
                     </div>
                     
                     <div class="col s12 m2"></div>
@@ -66,7 +66,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col s12">
                     <div class="col s12 m4">
-                        <p:commandButton class="waves-effect waves-light btn" value="Guardar" actionListener="#{EtapasBean.Insertar}" 
+                        <p:commandButton class="waves-effect waves-light btn" value="Guardar" actionListener="#{etapasBean.insertar()}" 
                                          update=":formAgregar"/>
                     </div>
                     <div class="col s12 m4">
