@@ -6,6 +6,7 @@
 package dao;
 import java.util.List;
 import modelos.Etapas;
+import modelos.Proyecto;
 /**
  *
  * @author Erick
@@ -14,5 +15,9 @@ public interface etapaDao {
     
     public List<Etapas> mostrarEtapas();
     public void insertarEtapas(Etapas etapa);
+    
+    //Para seleccionar de una lista desplegable
+    
+    public List<Proyecto> ListarProyectos();
     
 }

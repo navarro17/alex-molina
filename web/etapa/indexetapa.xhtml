@@ -10,7 +10,8 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:p="http://primefaces.org/ui"
-    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <h:head>
         <title>GestionEtapa</title>
@@ -24,7 +25,7 @@ and open the template in the editor.
             <div class="nav-wrapper">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><h:link outcome="/indexPro" value="Inicio" /></li>
-                    <li><h:link outcome="consultar" value="Proyectos" /></li>
+                    <li><h:link outcome="/proyecto/consultar" value="Proyectos" /></li>
                     <li><h:link value="Equipo De Trabajo" /></li>
                     <li><h:link value="Encargados" /></li>
                 </ul>
@@ -37,6 +38,15 @@ and open the template in the editor.
         <h:form id="formAgregar">          
             <div class="row">
                 <div class="col s12">
+                    
+                    <div class="input-field col s12 m3">
+                        ID:
+                    </div>
+                    <div class="input-field col s12 m7">                   
+                        <p:inputText value="#{etapasBean.etapa.idEtapa}" />
+                    </div>
+                    <div class="col s12 m2"></div>
+                    
                     <div class="input-field col s12 m3">
                         Nombre de la etapa:
                     </div>
@@ -47,16 +57,17 @@ and open the template in the editor.
                     
                     
                     <!--lista desplegable-->
+                    
                     <div class="input-field col s12 m3">
                         Proyecto:
                     </div>
-                   
-                    <div class="input-field col s12 m7"> 
-                    <c:forEach items="#{proyectoBean.proyecto.nombrePry}" var="option"> 
-              
-                    <p:inputText value="#{etapasBean.etapa.proyecto.nombrePry}" />
-                    </c:forEach>
+                    <div class="input-field col s12 m7">     
+                        <p:selectOneMenu  value="#{proyectoBean.proyecto.idProyecto}">
+                                         <f:selectItem itemLabel="--Seleccione--"/>
+                                         <f:selectItems value="#{etapasBean.listPro}"/>
+                        </p:selectOneMenu>
                     </div>
+                        <div class="col s12 m2"></div>
                        
                     
                     <!--lista desplegable fin-->
@@ -108,7 +119,7 @@ and open the template in the editor.
                         <p:commandButton class="waves-effect waves-light btn" value="Cancelar" update=":formAgregar"/>
                     </div>
                     <div class="col s12 m4">
-                        <h:link outcome="consultar" value="Regresar" class="waves-effect waves-light btn" />
+                        <h:link outcome="/proyecto/consultar" value="Regresare" class="waves-effect waves-light btn" />
                     </div>
                 </div>
             </div> 

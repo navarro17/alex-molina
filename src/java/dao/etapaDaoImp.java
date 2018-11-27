@@ -7,6 +7,7 @@ package dao;
 import hibernate.config.HibernateUtil;
 import java.util.List;
 import modelos.Etapas;
+import modelos.Proyecto;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -15,6 +16,7 @@ import org.hibernate.Transaction;
  * @author Erick
  */
 public class etapaDaoImp implements etapaDao{
+    
     public List<Etapas> mostrarEtapas() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -56,5 +58,30 @@ public class etapaDaoImp implements etapaDao{
             }
         }
     }
+
+    @Override
+    public List<Proyecto> ListarProyectos() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        List<Proyecto> listap = null;
+        
+        String hql = "From Proyecto";
+        
+        try{            
+            
+            listap = session.createQuery(hql).list();
+            tx.commit();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }finally{
+            if(session != null){
+                session.close();
+            }
+        }
+        
+        return listap;
+    }
+
+   
     
 }

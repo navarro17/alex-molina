@@ -22,6 +22,7 @@ public class Etapas  implements java.io.Serializable {
      private Set<Actividades> actividadeses = new HashSet<Actividades>(0);
 
     public Etapas() {
+        proyecto = new Proyecto();
     }
 
 	
