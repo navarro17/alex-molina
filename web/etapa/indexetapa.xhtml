@@ -9,7 +9,8 @@ and open the template in the editor.
 
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     
     <h:head>
         <title>GestionEtapa</title>
@@ -32,6 +33,7 @@ and open the template in the editor.
         <div class="container">
         <center><h4>Nueva Etapa</h4></center>
         <br />
+        
         <h:form id="formAgregar">          
             <div class="row">
                 <div class="col s12">
@@ -42,12 +44,27 @@ and open the template in the editor.
                         <p:inputText value="#{etapasBean.etapa.nombreEtap}" />
                     </div>
                     <div class="col s12 m2"></div>
-
-                    <div class="col s12"></div>
+                    
+                    
+                    <!--lista desplegable-->
+                    <div class="input-field col s12 m3">
+                        Proyecto:
+                    </div>
+                   
+                    <div class="input-field col s12 m7"> 
+                    <c:forEach items="#{proyectoBean.proyecto.nombrePry}" var="option"> 
+              
+                    <p:inputText value="#{etapasBean.etapa.proyecto.nombrePry}" />
+                    </c:forEach>
+                    </div>
+                       
+                    
+                    <!--lista desplegable fin-->
+                    
                     <div class="input-field col s12 m3">
                         Descripcion de la etapa:
                     </div>
-                    <div class="input-field col s12 m7">
+                    <div class="input-field col s12 m5">
                         <p:inputTextarea value="#{etapasBean.etapa.descripcionEtap}"></p:inputTextarea>
                     </div>
                     <div class="col s12 m2"></div>
@@ -61,6 +78,24 @@ and open the template in the editor.
                     </div>
                     
                     <div class="col s12 m2"></div>
+                    
+                    <div class="col s12"></div>
+                    <div class="input-field col s12 m2">
+                        Fecha de inicio:
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <p:inputText value="#{etapasBean.etapa.fechaInicioEt}" />
+                    </div>                
+                    <div class="col s12 m2"></div>
+                    
+                    <div class="input-field col s12 m2">
+                        Fecha de inicio:
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <p:inputText value="#{etapasBean.etapa.fechaFinEt}" />
+                    </div>                
+                    <div class="col s12 m2"></div>
+                    
                 </div>
             </div>
             <div class="row">
